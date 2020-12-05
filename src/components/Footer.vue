@@ -1,23 +1,21 @@
 <template>
     <div class="m-content">
-        <el-footer class="f_footer">Footer</el-footer>
+        <el-footer class="f_footer">
+            <el-menu class="el-menu-demo" mode="horizontal" @select="handleSelect">
+                <el-menu-item index="1">首  页</el-menu-item>
+                <el-menu-item index="2">社  区</el-menu-item>
+                <el-menu-item index="3">游戏库</el-menu-item>
+                <el-menu-item index="4"> 我 </el-menu-item>
+            </el-menu>
+
+        </el-footer>
     </div>
 </template>
 
 <script>
     export default {
         name: "Footer",
-        data() {
-            return {
-                Height: 0
-            }
-        },
-        mounted(){
-            //动态设置内容高度 让footer始终居底   header+footer的高度是100
-            this.Height = document.documentElement.clientHeight - 100;
-            //监听浏览器窗口变化　
-            window.onresize = ()=> {this.Height = document.documentElement.clientHeight -100}
-        }
+
     }
 </script>
 
@@ -36,5 +34,8 @@
         bottom: 0px;
         left: 0px;
         right: 0px;
+    }
+    .el-menu-demo{
+        width: 100%;
     }
 </style>

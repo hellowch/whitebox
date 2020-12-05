@@ -7,7 +7,13 @@
                         <div class="block"><el-avatar :size="35" :src="circleUrl"></el-avatar></div>
                     </div>
                 </el-col>
+
+                <div class="icon-warp">
+                    <i class="el-icon-search"></i>
+                    <i style="margin-left: 10px" class="el-icon-message"></i>
+                </div>
             </el-row>
+
             <el-divider></el-divider>
         </el-header>
     </div>
@@ -50,4 +56,11 @@
     .el-avatar{
         margin-top: 5px;
     }
+    .icon-warp{
+        position: relative;
+        margin-top: 15px;
+        text-align: right;
+        font-size: 50px;
+    }
+
 </style>
