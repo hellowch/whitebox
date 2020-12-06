@@ -1,12 +1,14 @@
 <template>
+
     <div>
         <Header></Header>
         <div class="m-content">
+
             <el-tabs class="homeTabs" v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="全 部" name="first">
                     <el-carousel height="150px">
-                        <el-carousel-item v-for="item in 4" :key="item">
-                            <h3 class="small">{{ item }}</h3>
+                        <el-carousel-item  v-for="(model,key) in models" :key="key">
+                            <img :src="model.urls" class="image small">
                         </el-carousel-item>
                     </el-carousel>
                     <el-divider></el-divider>
@@ -64,6 +66,7 @@
         </div>
 
         <Footer></Footer>
+
     </div>
 </template>
 
@@ -82,19 +85,19 @@
                 currentDate: new Date(),
                 models: [
                     {
-                        urls: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+                        urls: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607253308961&di=112bb4ba87e25e0ab00940efd3aaaff3&imgtype=0&src=http%3A%2F%2Fi1.3conline.com%2Fimages%2Fpiclib%2F201306%2F17%2Fbatch%2F1%2F179586%2F1371462425243b4sfs625yv_medium.jpg',
                         text: "11111111111"
                     },
                     {
-                        urls: 'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
+                        urls: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3073678498,370147010&fm=26&gp=0.jpg',
                         text: "2222222222"
                     },
                     {
-                        urls: 'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
+                        urls: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607253349674&di=9823dd2caee4d7a09740b3fcb8e482ed&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-08-13%2F5b7112bae4b37.jpg',
                         text: "3333333333"
                     },
                     {
-                        urls: 'https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg',
+                        urls: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607253389736&di=20dd4d6873c5497c49eacb5243a99b58&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F7af40ad162d9f2d3c7ef846da8ec8a136227ccb2.jpg',
                         text: "4444444444"
                     },
                 ]
@@ -119,6 +122,7 @@
         margin: 10px 5%;
         left: 0px;
         right: 0px;
+        z-index: 2;
     }
 
     .el-carousel__item h3 {

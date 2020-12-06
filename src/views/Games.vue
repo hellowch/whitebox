@@ -2,6 +2,9 @@
     <div>
         <Header></Header>
             <h2>这里是游戏库</h2>
+
+
+
         <Footer></Footer>
     </div>
 </template>
@@ -14,7 +17,10 @@
             Header,
             Footer
         },
-        name: "Games"
+        name: "Games",
+        methods: {
+
+        }
     }
 </script>
 
