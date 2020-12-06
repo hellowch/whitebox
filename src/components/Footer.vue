@@ -34,6 +34,8 @@
         bottom: 0px;
         left: 0px;
         right: 0px;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+        background-color: #FFFFFF;
     }
     .el-menu-demo{
         width: 100%;

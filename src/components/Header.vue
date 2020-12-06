@@ -14,7 +14,6 @@
                 </div>
             </el-row>
 
-            <el-divider></el-divider>
         </el-header>
     </div>
 
@@ -44,12 +43,14 @@
         margin: 10px 0;
     }
     .h_header{
-        height: 35px !important;
+        height: 87px !important;
         position: fixed;
         top: 0px;
         left: 0px;
         right: 0px;
         z-index: 1;
+        background-color: #ffffff;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
     }
     .el-divider{
         margin: 5px 0;
