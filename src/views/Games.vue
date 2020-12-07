@@ -44,12 +44,12 @@
                     {
                         id: '1',
                         name: '英雄联盟',
-                        gameIcon: '游戏图标',
-                        score:'评分',
-                        developers:'开发者',
+                        gameIcon: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607327229304&di=ac154c93242177a67030c42e84a4510b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201810%2F02%2F20181002121238_xtuik.jpg',
+                        score:'8.0',   //10分最高
+                        developers:'开发商: Riot Games',
                         url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607253308961&di=112bb4ba87e25e0ab00940efd3aaaff3&imgtype=0&src=http%3A%2F%2Fi1.3conline.com%2Fimages%2Fpiclib%2F201306%2F17%2Fbatch%2F1%2F179586%2F1371462425243b4sfs625yv_medium.jpg',
-                        introduction:'简介',
-                        developersText: "11111111111",
+                        introduction:'《英雄联盟》（简称LOL）是由美国拳头游戏（Riot Games）开发、中国大陆地区腾讯游戏代理运营的英雄对战MOBA竞技网游。',
+                        developersText: "在这里，魔法不只是一种神秘莫测的能量概念。它是实体化的物质，可以被引导、成形、塑造和操作。符文之地的魔法拥有自己的自然法则。源生态魔法随机变化的结果改变了科学法则。",
                         price:'￥50'
                     },
                     {
