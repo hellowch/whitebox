@@ -45,23 +45,61 @@
 
                 <el-tabs stretch="stretch" v-model="activeName" @tab-click="handleClick">
                     <el-tab-pane label="详情" name="first">
-
                         <p style="text-align: left">{{modelDetail.introduction}}</p>
                         <div style="background-color: #f2f2f2;padding: 10px;border-radius: 10px;">
                             <h3 style="text-align: left">开发者的话</h3>
                             <p style="text-align: left;">{{modelDetail.developersText}}</p>
                         </div>
-
                     </el-tab-pane>
+
                     <el-tab-pane label="评价" name="second">
 
-                        <el-avatar :size="45" style="background-color: #65C8D0">{{modelDetail.score}}</el-avatar>
-                        <p>我的评价</p>
-                        <div class="block">
+                        <div style="height: 100px">
+                            <el-avatar class="tabScore" :size="45">{{modelDetail.score}}</el-avatar>
+                            <div style="float: right;height: 80%;width: 70%;">
+                                <div style="height: 20%">
+                                    <i v-for="value in 5" :key="value" class="el-icon-star-on"></i>
+                                    <el-progress class="tabProgress" :percentage="60" :show-text="false"></el-progress>
+                                </div>
+                                <div>
+                                    <i style="position:relative;left: 6px" v-for="value in 4" :key="value" class="el-icon-star-on"></i>
+                                    <el-progress class="tabProgress" :percentage="20" :show-text="false"></el-progress>
+                                </div>
+                                <div>
+                                    <i style="position:relative;left: 12px" v-for="value in 3" :key="value" class="el-icon-star-on"></i>
+                                    <el-progress class="tabProgress" :percentage="10" :show-text="false"></el-progress>
+                                </div>
+                                <div>
+                                    <i style="position:relative;left: 18px" v-for="value in 2" :key="value" class="el-icon-star-on"></i>
+                                    <el-progress class="tabProgress" :percentage="5" :show-text="false"></el-progress>
+                                </div>
+                                <div>
+                                    <i style="position:relative;left: 24px" v-for="value in 1" :key="value" class="el-icon-star-on"></i>
+                                    <el-progress class="tabProgress" :percentage="5" :show-text="false"></el-progress>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="link-top"></div>
+
+                        <h3 style="text-align: left">我的评价</h3>
+                        <div style="background-color: #f2f2f2;padding: 13px;border-radius: 10px;">
+                            <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
                             <el-rate v-model="value1" :colors="colors"></el-rate>
                         </div>
 
+                        <h3 style="text-align: left">玩家评价</h3>
+                        <div v-for="(evaluate,key) in evaluates" :key="key" style="background-color: #f2f2f2;padding: 13px;border-radius: 10px;margin-top: 5px">
+                            <el-avatar :size="30" :src="evaluate.avatar"></el-avatar>
+                            <el-rate v-model="evaluate.value" disabled :colors="colors"></el-rate>
+                            <p>{{evaluate.text}}</p>
+                        </div>
+
+
+
                     </el-tab-pane>
+
                 </el-tabs>
             </div>
         </div>
@@ -102,7 +140,30 @@
                         developersText: "",
                         price:''
                     },
+                ],
+                evaluates: [
+                    {
+                        avatar:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607364322238&di=d364a4003082ee77a103e74785265f6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201511%2F21%2F20151121171154_KZL4N.jpeg",
+                        value:3.7,
+                        text: "同学推荐的，玩了一晚上感觉挺好玩。特别上头。"
+                    },
+                    {
+                        avatar:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607364340282&di=b6193c8e03b547ca777b9097c4f1323c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F19%2F20150419H4644_tKx23.jpeg",
+                        value:4.5,
+                        text: "兄弟们！组起来！买不了吃亏买不了上当!"
+                    },
+                    {
+                        avatar:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607364360002&di=3d65547b9efd55020303c1ae70a86957&imgtype=0&src=http%3A%2F%2Fimg02.fs.yiban.cn%2F45481414%2Favatar%2Fuser%2F200",
+                        value:4.1,
+                        text: "我下单了！你们呢！"
+                    },
+                    {
+                        avatar:"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1325988420,2634334416&fm=26&gp=0.jpg",
+                        value:5.0,
+                        text: "不错，之前玩过类似的游戏，不过这个游戏给我一种能玩下去的感觉，每天上线割菜，不强迫氪金"
+                    },
                 ]
+
             };
         },
         created(){
@@ -178,6 +239,15 @@
 <style>
     .message-logout {
         width: 60% !important;
+    }
+    .el-tabs__item.is-active{
+        color: #65c8d0 !important;
+    }
+    .el-tabs__active-bar{
+        background-color: #65c8d0 !important;
+    }
+    .el-progress-bar__inner{
+        background-color: #65c8d0 !important;
     }
 </style>
 
@@ -262,6 +332,25 @@
     .button-new-tag{
         background-color: #aafffd;
         border-color: #aafffd;
+    }
+
+
+    .tabScore{
+        background-color: #65C8D0;
+        float: left;
+        margin-left: 15%;
+        margin-top: 5%;
+    }
+    /*中间的过度的横线*/
+    .link-top {
+        border-top: solid #f2f2f2 5px;
+    }
+
+    .tabProgress{
+        width: 60%;
+        float: right;
+        margin-top: 2%;
+        margin-right: 10%;
     }
 </style>
 
