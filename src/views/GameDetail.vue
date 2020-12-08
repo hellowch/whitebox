@@ -57,25 +57,9 @@
                         <div style="height: 100px">
                             <el-avatar class="tabScore" :size="45">{{modelDetail.score}}</el-avatar>
                             <div style="float: right;height: 80%;width: 70%;">
-                                <div style="height: 20%">
-                                    <i v-for="value in 5" :key="value" class="el-icon-star-on"></i>
-                                    <el-progress class="tabProgress" :percentage="60" :show-text="false"></el-progress>
-                                </div>
-                                <div>
-                                    <i style="position:relative;left: 6px" v-for="value in 4" :key="value" class="el-icon-star-on"></i>
-                                    <el-progress class="tabProgress" :percentage="20" :show-text="false"></el-progress>
-                                </div>
-                                <div>
-                                    <i style="position:relative;left: 12px" v-for="value in 3" :key="value" class="el-icon-star-on"></i>
-                                    <el-progress class="tabProgress" :percentage="10" :show-text="false"></el-progress>
-                                </div>
-                                <div>
-                                    <i style="position:relative;left: 18px" v-for="value in 2" :key="value" class="el-icon-star-on"></i>
-                                    <el-progress class="tabProgress" :percentage="5" :show-text="false"></el-progress>
-                                </div>
-                                <div>
-                                    <i style="position:relative;left: 24px" v-for="value in 1" :key="value" class="el-icon-star-on"></i>
-                                    <el-progress class="tabProgress" :percentage="5" :show-text="false"></el-progress>
+                                <div v-for="values in 5" :key="values">
+                                    <i style="position:relative;" :style="{left:(values-1)*6 +'px'}" v-for="value in 6-values" :key="value" class="el-icon-star-on"></i>
+                                    <el-progress class="tabProgress" :percentage="45/values" :show-text="false"></el-progress>
                                 </div>
                             </div>
 
@@ -352,5 +336,6 @@
         margin-top: 2%;
         margin-right: 10%;
     }
+
 </style>
 
