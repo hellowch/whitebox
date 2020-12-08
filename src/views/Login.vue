@@ -87,6 +87,12 @@
     }
 </script>
 
+<style>
+    .v-touch{
+        touch-action: pan-y !important;
+    }
+</style>
+
 <style scoped>
     #building{
         /*background:url("../assets/images/banner.jpg");*/

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header></Header>
-        <v-touch  v-on:swiperight="swiperright" class="wrapper">
+        <v-touch  v-on:swiperight="swiperright" class="v-touch" >
             <div class="m-content">
                 <p style="text-align: left;">游戏图片<i style="margin-left: 25%"/>总时长<i style="margin-left: 13%"/>两周内<i style="margin-left: 12%"/>成就</p>
                 <el-row>
@@ -101,6 +101,12 @@
     }
 </script>
 
+<style>
+    .v-touch{
+        touch-action: pan-y !important;
+    }
+</style>
+
 <style scoped>
     .text{
         display: flex;
@@ -122,6 +128,7 @@
         max-width: 960px;
         text-align: center;
         margin: 25px 5%;
+
     }
 
     .bottom {

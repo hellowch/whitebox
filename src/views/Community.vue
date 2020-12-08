@@ -1,7 +1,9 @@
 <template>
     <div>
         <Header></Header>
-        <v-touch v-on:swipeleft="swiperleft"  v-on:swiperight="swiperright" class="wrapper">
+        <v-touch v-on:swipeleft="swiperleft"  v-on:swiperight="swiperright" class="v-touch">
+
+           
 
             <div class="m-content">
                 <el-row style="margin-bottom: 20px">
@@ -29,13 +31,13 @@
                                     <img :src="model.url" class="imageText">
                                 </div>
 
-
                             </div>
                         </el-card>
                     </el-col>
                 </el-row>
-
             </div>
+
+
 
         </v-touch>
         <Footer></Footer>
@@ -119,6 +121,12 @@
         }
     }
 </script>
+
+<style>
+    .v-touch{
+        touch-action: pan-y !important;
+    }
+</style>
 
 <style scoped>
 

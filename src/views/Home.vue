@@ -3,7 +3,7 @@
     <div>
         <Header></Header>
 
-        <v-touch v-on:swipeleft="swiperleft" class="wrapper">
+        <v-touch v-on:swipeleft="swiperleft" class="v-touch">
             <transition name="fade">
 
                 <div class="m-content">
@@ -104,6 +104,7 @@
 </template>
 
 <script>
+
     import Header from "../components/Header"
     import Footer from "../components/Footer";
     export default {
@@ -215,6 +216,12 @@
         }
     }
 </script>
+
+<style>
+    .v-touch{
+        touch-action: pan-y !important;
+    }
+</style>
 
 <style scoped>
     .m-content {

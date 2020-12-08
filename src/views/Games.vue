@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header></Header>
-        <v-touch v-on:swipeleft="swiperleft"  v-on:swiperight="swiperright" class="wrapper">
+        <v-touch v-on:swipeleft="swiperleft"  v-on:swiperight="swiperright" class="v-touch">
             <div class="m-content">
                 <el-row :gutter="5">
                     <el-col :span="12"  v-for="(model,key) in models" :key="key" style="margin-top: 10px">
@@ -26,6 +26,7 @@
         <Footer></Footer>
     </div>
 </template>
+
 
 <script>
     import Header from "../components/Header"
@@ -198,6 +199,12 @@
         }
     }
 </script>
+
+<style>
+    .v-touch{
+        touch-action: pan-y !important;
+    }
+</style>
 
 <style scoped>
     .m-content {

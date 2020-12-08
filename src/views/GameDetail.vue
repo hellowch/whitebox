@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header></Header>
-        <v-touch  v-on:swiperight="swiperright" class="wrapper">
+        <v-touch  v-on:swiperight="swiperright" class="v-touch">
         <div class="m-content">
             <div style="margin: 12px 0%;" class="block">
                 <el-image :src="modelDetail.url"></el-image>
@@ -239,6 +239,9 @@
     .el-progress-bar__inner{
         background-color: #65c8d0 !important;
     }
+    .v-touch{
+         touch-action: pan-y !important;
+     }
 </style>
 
 <style scoped>

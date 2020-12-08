@@ -25,5 +25,6 @@ new Vue({
 }).$mount('#app')
 
 VueTouch.config.swipe = {
-  threshold:50  //设置左右滑动的距离
+  threshold:50,  //设置左右滑动的距离
+  direction: "horizontal"//解决无法上下滑动
 }
