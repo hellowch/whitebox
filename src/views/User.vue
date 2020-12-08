@@ -6,7 +6,6 @@
             <el-row>
                 <el-col :span="30" v-for="(model,key) in models" :key="key">
                     <span @click="gameDetail(model)">
-
                         <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
                         <img :src="model.url" class="image">
                         <div class="text">
@@ -20,7 +19,7 @@
                             </div>
                         </div>
                         <el-progress style="width: 65%;float:left;margin-top: 20px" :percentage="model.ratio"></el-progress>
-                    </el-card>
+                        </el-card>
                     </span>
                 </el-col>
             </el-row>

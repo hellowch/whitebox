@@ -2,10 +2,10 @@
     <div class="m-content">
         <el-footer class="f_footer">
             <el-menu class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                <el-menu-item index="1"><el-link href="/Home">首  页</el-link></el-menu-item>
-                <el-menu-item index="2"><el-link href="/Community">社  区</el-link></el-menu-item>
+                <el-menu-item style="padding-left: 25px;padding-right: 25px" index="1"><el-link href="/Home">首  页</el-link></el-menu-item>
+                <el-menu-item style="padding-left: 25px;padding-right: 25px" index="2"><el-link href="/Community">社  区</el-link></el-menu-item>
                 <el-menu-item index="3"><el-link href="/Games">游戏库</el-link></el-menu-item>
-                <el-menu-item index="4"><el-link href="/User">我</el-link></el-menu-item>
+                <el-menu-item style="padding-left: 34px;padding-right: 34px" index="4"><el-link href="/User">我</el-link></el-menu-item>
             </el-menu>
 
         </el-footer>
