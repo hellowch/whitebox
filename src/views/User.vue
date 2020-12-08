@@ -1,10 +1,11 @@
 <template>
     <div>
         <Header></Header>
-        <div class="m-content">
-            <p style="text-align: left;">游戏图片<i style="margin-left: 25%"/>总时长<i style="margin-left: 13%"/>两周内<i style="margin-left: 12%"/>成就</p>
-            <el-row>
-                <el-col :span="30" v-for="(model,key) in models" :key="key">
+        <v-touch  v-on:swiperight="swiperright" class="wrapper">
+            <div class="m-content">
+                <p style="text-align: left;">游戏图片<i style="margin-left: 25%"/>总时长<i style="margin-left: 13%"/>两周内<i style="margin-left: 12%"/>成就</p>
+                <el-row>
+                    <el-col :span="30" v-for="(model,key) in models" :key="key">
                     <span @click="gameDetail(model)">
                         <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
                         <img :src="model.url" class="image">
@@ -21,11 +22,10 @@
                         <el-progress style="width: 65%;float:left;margin-top: 20px" :percentage="model.ratio"></el-progress>
                         </el-card>
                     </span>
-                </el-col>
-            </el-row>
-
-
-        </div>
+                    </el-col>
+                </el-row>
+            </div>
+        </v-touch>
         <Footer></Footer>
     </div>
 </template>
@@ -82,9 +82,6 @@
             };
         },
         methods: {
-            format(percentage) {
-                return percentage === 100 ? '满' : `${percentage}%`;
-            },
             gameDetail(model){
                 // window.console.log(model);
                 // this.$router.push("/UserGameDetail/" + model.id )
@@ -96,6 +93,9 @@
                         model: model
                     }
                 })
+            },
+            swiperright: function () { //左滑切换到detail页
+                this.$router.push({'path':'/games'});
             }
         }
     }

@@ -1,11 +1,10 @@
 <template>
     <div>
         <Header></Header>
-        <div class="m-content">
-
-
-            <el-row :gutter="5">
-                <el-col :span="12"  v-for="(model,key) in models" :key="key" style="margin-top: 10px">
+        <v-touch v-on:swipeleft="swiperleft"  v-on:swiperight="swiperright" class="wrapper">
+            <div class="m-content">
+                <el-row :gutter="5">
+                    <el-col :span="12"  v-for="(model,key) in models" :key="key" style="margin-top: 10px">
 
                     <span @click="gameDetail(model)">
 
@@ -19,10 +18,11 @@
 
                     </span>
 
-                </el-col>
-            </el-row>
+                    </el-col>
+                </el-row>
 
-        </div>
+            </div>
+        </v-touch>
         <Footer></Footer>
     </div>
 </template>
@@ -188,6 +188,12 @@
                         model: model
                     }
                 })
+            },
+            swiperleft: function () {  //右划切换到goods页
+                this.$router.push({'path':'/user'});
+            },
+            swiperright: function () { //左滑切换到detail页
+                this.$router.push({'path':'/community'});
             }
         }
     }

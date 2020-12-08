@@ -2,97 +2,101 @@
 
     <div>
         <Header></Header>
-        <div class="m-content">
 
-            <el-tabs class="homeTabs" v-model="activeName" @tab-click="handleClick">
-                <el-tab-pane label="全 部" name="first">
-                    <el-carousel height="150px">
-                        <el-carousel-item  v-for="(model,key) in models.slice(0,4)" :key="key">
-                            <img :src="model.url" class="image small">
-                        </el-carousel-item>
-                    </el-carousel>
+        <v-touch v-on:swipeleft="swiperleft" class="wrapper">
+            <transition name="fade">
 
+                <div class="m-content">
 
-                    <el-row style="margin-bottom: 20px">
-                        <el-col :span="30" v-for="(model,key) in models" :key="key">
-                            <div class="link-top"></div>
-                            <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
-                                <img :src="model.url" class="imageText">
-                                <div class="text">
-                                    <div class="gamename">
-                                        <p>{{model.title}}</p>
-                                    </div>
-                                    <div class="gamedata">
-                                        <p>{{model.data}}</p>
-                                        <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
-                                    </div>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-
-                </el-tab-pane>
-                <el-tab-pane label="PC游戏" name="second">
-                    <el-row style="margin-bottom: 20px">
-                        <el-col :span="30" v-for="(model,key) in models" :key="key">
-                            <div class="link-top"></div>
-                            <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
-                                <img :src="model.url" class="imageText">
-                                <div class="text">
-                                    <div class="gamename">
-                                        <p>{{model.title}}</p>
-                                    </div>
-                                    <div class="gamedata">
-                                        <p>{{model.data}}</p>
-                                        <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
-                                    </div>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-                </el-tab-pane>
-                <el-tab-pane label="主机游戏" name="third">
-                    <el-row style="margin-bottom: 20px">
-                        <el-col :span="30" v-for="(model,key) in models" :key="key">
-                            <div class="link-top"></div>
-                            <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
-                                <img :src="model.url" class="imageText">
-                                <div class="text">
-                                    <div class="gamename">
-                                        <p>{{model.title}}</p>
-                                    </div>
-                                    <div class="gamedata">
-                                        <p>{{model.data}}</p>
-                                        <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
-                                    </div>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-                </el-tab-pane>
-                <el-tab-pane label="手机游戏" name="fourth">
-                    <el-row style="margin-bottom: 20px">
-                        <el-col :span="30" v-for="(model,key) in models" :key="key">
-                            <div class="link-top"></div>
-                            <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
-                                <img :src="model.url" class="imageText">
-                                <div class="text">
-                                    <div class="gamename">
-                                        <p>{{model.title}}</p>
-                                    </div>
-                                    <div class="gamedata">
-                                        <p>{{model.data}}</p>
-                                        <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
-                                    </div>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-                </el-tab-pane>
-            </el-tabs>
+                    <el-tabs class="homeTabs" v-model="activeName" @tab-click="handleClick">
+                        <el-tab-pane label="全 部" name="first">
+                            <el-carousel height="150px">
+                                <el-carousel-item  v-for="(model,key) in models.slice(0,4)" :key="key">
+                                    <img :src="model.url" class="image small">
+                                </el-carousel-item>
+                            </el-carousel>
 
 
-        </div>
+                            <el-row style="margin-bottom: 20px">
+                                <el-col :span="30" v-for="(model,key) in models" :key="key">
+                                    <div class="link-top"></div>
+                                    <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
+                                        <img :src="model.url" class="imageText">
+                                        <div class="text">
+                                            <div class="gamename">
+                                                <p>{{model.title}}</p>
+                                            </div>
+                                            <div class="gamedata">
+                                                <p>{{model.data}}</p>
+                                                <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </el-col>
+                            </el-row>
+
+                        </el-tab-pane>
+                        <el-tab-pane label="PC游戏" name="second">
+                            <el-row style="margin-bottom: 20px">
+                                <el-col :span="30" v-for="(model,key) in models" :key="key">
+                                    <div class="link-top"></div>
+                                    <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
+                                        <img :src="model.url" class="imageText">
+                                        <div class="text">
+                                            <div class="gamename">
+                                                <p>{{model.title}}</p>
+                                            </div>
+                                            <div class="gamedata">
+                                                <p>{{model.data}}</p>
+                                                <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </el-col>
+                            </el-row>
+                        </el-tab-pane>
+                        <el-tab-pane label="主机游戏" name="third">
+                            <el-row style="margin-bottom: 20px">
+                                <el-col :span="30" v-for="(model,key) in models" :key="key">
+                                    <div class="link-top"></div>
+                                    <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
+                                        <img :src="model.url" class="imageText">
+                                        <div class="text">
+                                            <div class="gamename">
+                                                <p>{{model.title}}</p>
+                                            </div>
+                                            <div class="gamedata">
+                                                <p>{{model.data}}</p>
+                                                <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </el-col>
+                            </el-row>
+                        </el-tab-pane>
+                        <el-tab-pane label="手机游戏" name="fourth">
+                            <el-row style="margin-bottom: 20px">
+                                <el-col :span="30" v-for="(model,key) in models" :key="key">
+                                    <div class="link-top"></div>
+                                    <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
+                                        <img :src="model.url" class="imageText">
+                                        <div class="text">
+                                            <div class="gamename">
+                                                <p>{{model.title}}</p>
+                                            </div>
+                                            <div class="gamedata">
+                                                <p>{{model.data}}</p>
+                                                <i style="margin-top: 16px;" class="el-icon-s-comment">{{model.comments}}</i>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </el-col>
+                            </el-row>
+                        </el-tab-pane>
+                    </el-tabs>
+                </div>
+            </transition>
+        </v-touch>
 
         <Footer></Footer>
 
@@ -203,7 +207,11 @@
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
-            }
+            },
+            swiperleft: function () {  //右划切换到goods页
+                this.$router.push({'path':'/community'});
+            },
+
         }
     }
 </script>

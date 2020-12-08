@@ -1,40 +1,43 @@
 <template>
     <div>
         <Header></Header>
-        <div class="m-content">
+        <v-touch v-on:swipeleft="swiperleft"  v-on:swiperight="swiperright" class="wrapper">
 
-            <el-row style="margin-bottom: 20px">
-                <el-col :span="30" v-for="(model,key) in models" :key="key">
-                    <div class="link-top"></div>
-                    <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
+            <div class="m-content">
+                <el-row style="margin-bottom: 20px">
+                    <el-col :span="30" v-for="(model,key) in models" :key="key">
+                        <div class="link-top"></div>
+                        <el-card class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
 
-                        <div class="text">
-                            <div class="userData">
-                                <el-avatar style="float: left;margin-left: 10px;margin-top:5px" :size="35" :src="model.avatar"></el-avatar>
-                                <div style="display: flex;flex-direction: column;float: left">
-                                    <a style="position: relative;margin-top: 6px;margin-left: 5px">{{model.username}}</a>
-                                    <a style="color: #C0C4CC;">{{model.data}}</a>
+                            <div class="text">
+                                <div class="userData">
+                                    <el-avatar style="float: left;margin-left: 10px;margin-top:5px" :size="35" :src="model.avatar"></el-avatar>
+                                    <div style="display: flex;flex-direction: column;float: left">
+                                        <a style="position: relative;margin-top: 6px;margin-left: 5px">{{model.username}}</a>
+                                        <a style="color: #C0C4CC;">{{model.data}}</a>
+                                    </div>
+                                    <div style="float: right;margin-right: 10px">
+                                        <i style="margin-top: 16px;color: #C0C4CC;" class="el-icon-s-comment">{{model.comments}}</i>
+                                        <i style="margin-top: 16px;color: #C0C4CC;margin-left: 5px" class="el-icon-star-on">{{model.give}}</i>
+                                    </div>
+
                                 </div>
-                                <div style="float: right;margin-right: 10px">
-                                    <i style="margin-top: 16px;color: #C0C4CC;" class="el-icon-s-comment">{{model.comments}}</i>
-                                    <i style="margin-top: 16px;color: #C0C4CC;margin-left: 5px" class="el-icon-star-on">{{model.give}}</i>
+
+                                <div class="gamename">
+                                    <p>{{model.title}}</p>
+                                    <p style="color: #909399">{{model.text}}</p>
+                                    <img :src="model.url" class="imageText">
                                 </div>
+
 
                             </div>
+                        </el-card>
+                    </el-col>
+                </el-row>
 
-                            <div class="gamename">
-                                <p>{{model.title}}</p>
-                                <p style="color: #909399">{{model.text}}</p>
-                                <img :src="model.url" class="imageText">
-                            </div>
+            </div>
 
-
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
-
-        </div>
+        </v-touch>
         <Footer></Footer>
     </div>
 </template>
@@ -105,10 +108,20 @@
                 ]
             };
         },
+        methods: {
+            swiperleft: function () {  //右划切换到goods页
+                this.$router.push({'path':'/games'});
+            },
+            swiperright: function () { //左滑切换到detail页
+                this.$router.push({'path':'/home'});
+            }
+
+        }
     }
 </script>
 
 <style scoped>
+
     .m-content {
         max-width: 960px;
         text-align: center;

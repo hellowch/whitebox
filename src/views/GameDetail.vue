@@ -1,6 +1,7 @@
 <template>
     <div>
         <Header></Header>
+        <v-touch  v-on:swiperight="swiperright" class="wrapper">
         <div class="m-content">
             <div style="margin: 12px 0%;" class="block">
                 <el-image :src="modelDetail.url"></el-image>
@@ -87,6 +88,7 @@
                 </el-tabs>
             </div>
         </div>
+        </v-touch>
         <Footer></Footer>
     </div>
 </template>
@@ -213,7 +215,11 @@
                         showClose: true,
                     });
                 });
+            },
+            swiperright: function () { //左滑切换到detail页
+                this.$router.push({'path':'/games'});
             }
+
         }
     }
 </script>
