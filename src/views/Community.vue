@@ -7,9 +7,19 @@
 
             <div class="m-content">
 
-                <el-card style="" class="el-card" :body-style="{ padding: '0px'}" shadow="hover" >
-                    <el-input v-if="inputVisible" v-model="inputValue.title" ref="saveTagInput" @keyup.enter.native="handleInputConfirm" @blur="handleInputConfirm" placeholder="请输入标题"></el-input>
-                    <el-input v-if="inputVisible" v-model="inputValue.text" ref="saveTagInput" @keyup.enter.native="handleInputConfirm" @blur="handleInputConfirm" type="textarea" :rows="2" placeholder="请输入内容"></el-input>
+                <el-card style="" class="el-card" :body-style="{ padding: '0px'}" shadow="always" >
+                    <el-form v-if="inputVisible" ref="saveTagInput" :model="inputValue"  label-width="80px" style="float: left;margin-top: 10%">
+                        <el-form-item label="标题">
+                            <el-input v-model="inputValue.title"></el-input>
+                        </el-form-item>
+                        <el-form-item label="内容">
+                            <el-input type="textarea" v-model="inputValue.text"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" @click="handleInputConfirm">立即创建</el-button>
+                            <el-button>取消</el-button>
+                        </el-form-item>
+                    </el-form>
                 </el-card>
 
 
@@ -67,7 +77,7 @@
                 inputVisible: false,
                 inputValue:
                     {
-                        id: '5',
+                        id: '',
                         avatar:"https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
                         username:'我是管理员',
                         url: 'https://picsum.photos/360/460?random=1',
@@ -142,9 +152,6 @@
 
             showInput() {
                 this.inputVisible = true;
-                this.$nextTick(_ => {
-                    this.$refs.saveTagInput.$refs.input.focus();
-                });
             },
 
             handleInputConfirm() {
@@ -154,6 +161,14 @@
                 }
                 this.inputVisible = false;
                 this.inputValue = '';
+                // this.inputValue.avatar= "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png";
+                // this.inputValue.username='我是管理员';
+                // this.inputValue.url= 'https://picsum.photos/360/460?random=1';
+                // this.inputValue.data='刚刚';
+                // this.inputValue.comments='0';
+                // this.inputValue.give='0';
+                // this.inputValue.title = '';
+                // this.inputValue.text = '';
             },
 
         }
